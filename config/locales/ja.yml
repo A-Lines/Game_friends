@@ -1,0 +1,39 @@
+ja:
+  platform: &platform
+    smartfone: "スマートフォン"
+  playstyle: &playstyle
+    enjoy: "エンジョイ"
+    serious: "ガチ"
+    beginner: "初心者"
+  weekday: &weekday
+    weekday: "平日"
+    holiday: "土日祝"
+    norule: "不定期"
+  play_timing: &play_timing
+    morning: "午前中"
+    afternoon: "午後"
+    midnight: "深夜"
+    norule: "不定期"
+  enums:
+    user:
+      platform: *platform
+      playstyle: *playstyle
+      weekday: *weekday
+      play_timing: *play_timing
+      gender:
+        girl: "♀"
+        boy: "♂"
+        x: "性別無し"
+    room:
+      platform: *platform
+      playstyle: *playstyle
+      weekday: *weekday
+      play_timing: *play_timing
+    notice:
+      action_type:
+        mail: "メール通知"
+        follow: "フォロー通知"
+        dm: "DM通知"
+        room: "ルーム参加申請通知"
+        room_result: "ルーム参加申請結果通知"
+        group_talk: "グループトーク通知"
