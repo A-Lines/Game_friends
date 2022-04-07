@@ -1,0 +1,22 @@
+platforms:
+  pc: 0
+  playstation: 1
+  xbox: 2
+  switch: 3
+  smartfone: 4
+
+playstyles:
+  enjoy: 0
+  serious: 1
+  beginner: 2
+
+weekdays:
+  weekday: 0
+  holiday: 1
+  norule: 2
+
+play_timings:
+  morning: 0
+  afternoon: 1
+  midnight: 2
+  norule: 3
