@@ -1,0 +1,2 @@
+class RoomRequest < ApplicationRecord
+end

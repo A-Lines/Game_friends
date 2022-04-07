@@ -1,0 +1,2 @@
+class DmEntryiesController < ApplicationController
+end

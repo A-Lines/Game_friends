@@ -1,0 +1,2 @@
+class DmSpace < ApplicationRecord
+end

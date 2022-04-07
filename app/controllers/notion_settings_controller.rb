@@ -1,0 +1,2 @@
+class NotionSettingsController < ApplicationController
+end

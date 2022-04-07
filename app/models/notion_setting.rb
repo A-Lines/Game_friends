@@ -1,0 +1,2 @@
+class NotionSetting < ApplicationRecord
+end

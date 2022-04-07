@@ -1,0 +1,2 @@
+class DmSpacesController < ApplicationController
+end

@@ -1,0 +1,2 @@
+class RoomTalkSpace < ApplicationRecord
+end
