@@ -45,29 +45,29 @@ ActiveRecord::Schema.define(version: 2022_04_07_045719) do
     t.integer "room_request_id"
     t.integer "relationship_id"
     t.integer "room_member_id"
-    t.integer "notice_user_id"
-    t.integer "noticed_user_id"
-    t.integer "action_type"
-    t.boolean "confitmation_status", default: false
+    t.integer "notice_user_id", null: false
+    t.integer "noticed_user_id", null: false
+    t.integer "action_type", null: false
+    t.boolean "confitmation_status", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "notion_settings", force: :cascade do |t|
-    t.integer "user_id"
-    t.boolean "email_notice", default: false
-    t.boolean "follow_notice", default: true
-    t.boolean "dm_notice", default: true
-    t.boolean "room_entry_notice", default: true
-    t.boolean "room_result_notice", default: true
-    t.boolean "group_talk_notice", default: true
+    t.integer "user_id", null: false
+    t.boolean "email_notice", default: false, null: false
+    t.boolean "follow_notice", default: true, null: false
+    t.boolean "dm_notice", default: true, null: false
+    t.boolean "room_entry_notice", default: true, null: false
+    t.boolean "room_result_notice", default: true, null: false
+    t.boolean "group_talk_notice", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "relationships", force: :cascade do |t|
-    t.integer "follower_id"
-    t.integer "folloewd_id"
+    t.integer "follower_id", null: false
+    t.integer "followed_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -98,16 +98,14 @@ ActiveRecord::Schema.define(version: 2022_04_07_045719) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer "game_user_id"
-    t.string "nickname"
-    t.string "email"
+    t.integer "game_user_id", null: false
+    t.string "nickname", null: false
     t.string "profile_image_id"
     t.string "introduction"
-    t.integer "gender"
-    t.integer "platform"
-    t.integer "playstyle"
-    t.integer "weekday"
-    t.integer "time"
+    t.integer "gender", null: false
+    t.integer "platform", null: false
+    t.integer "weekday", null: false
+    t.integer "time", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

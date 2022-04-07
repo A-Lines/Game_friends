@@ -8,10 +8,10 @@ class CreateNotices < ActiveRecord::Migration[5.2]
       t.integer :room_request_id
       t.integer :relationship_id
       t.integer :room_member_id
-      t.integer :notice_user_id
-      t.integer :noticed_user_id
-      t.integer :action_type
-      t.boolean :confitmation_status, default: false
+      t.integer :notice_user_id, null: false
+      t.integer :noticed_user_id, null: false
+      t.integer :action_type, null: false
+      t.boolean :confitmation_status, default: false, null: false
       t.timestamps
     end
   end
