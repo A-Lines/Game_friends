@@ -6,9 +6,10 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :profile_image_id
       t.string :introduction
       t.integer :gender,null: false
+      t.integer :playstyle,null: false
       t.integer :platform,null: false
       t.integer :weekday,null: false
-      t.integer :time,null: false
+      t.integer :play_timing,null: false
       t.timestamps
     end
   end
