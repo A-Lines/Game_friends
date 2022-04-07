@@ -1,8 +1,8 @@
 class CreateNotices < ActiveRecord::Migration[5.2]
   def change
     create_table :notices do |t|
-      t.integer :user_id
-      t.integer :notice_setting_id
+      t.integer :user_id, null: false
+      t.integer :notice_setting_id, null: false
       t.integer :dm_space_id
       t.integer :room_talk_space_id
       t.integer :room_request_id
