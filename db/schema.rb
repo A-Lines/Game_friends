@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 2022_04_07_045719) do
     t.integer "platform", null: false
     t.integer "playstyle", null: false
     t.integer "weekday", null: false
-    t.integer "time", null: false
+    t.integer "play_timing", null: false
     t.string "introduction"
     t.integer "approval", null: false
     t.datetime "created_at", null: false
