@@ -9,4 +9,17 @@ class User < ApplicationRecord
   enum playstyle: Settings.playstyles.to_h, _prefix: true
   enum weekday: Settings.weekdays.to_h, _prefix: true
   enum play_timing: Settings.play_timings.to_h, _prefix: true
+
+  # with_options でバリデーションをまとめて指定
+  # on: :nextを使うことでinvalid?(:next)
+  with_options presence: true do
+    validates :email
+    validates :password
+    validates :nickname, length: { maximum: 20, minimum: 2}
+    validates :gender
+    validates :platform
+    validates :playstyle
+    validates :weekday
+    validates :play_timing
+  end
 end

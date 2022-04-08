@@ -10,19 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_07_071005) do
+ActiveRecord::Schema.define(version: 2022_04_08_141225) do
 
   create_table "dm_entries", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "dm_space_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "dm_messages", force: :cascade do |t|
+    t.integer "dm_space_id", null: false
+    t.integer "user_id", null: false
+    t.string "message", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "dm_spaces", force: :cascade do |t|
+    t.integer "dm_entry_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,13 +41,15 @@ ActiveRecord::Schema.define(version: 2022_04_07_071005) do
   end
 
   create_table "games", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "notices", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "notice_setting_id"
+    t.integer "user_id", null: false
+    t.integer "notice_setting_id", null: false
     t.integer "dm_space_id"
     t.integer "room_talk_space_id"
     t.integer "room_request_id"
@@ -75,21 +83,30 @@ ActiveRecord::Schema.define(version: 2022_04_07_071005) do
   end
 
   create_table "room_members", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "room_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "room_messages", force: :cascade do |t|
+    t.integer "room_talk_space_id", null: false
+    t.integer "room_member_id", null: false
+    t.string "message", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "room_requests", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "room_id", null: false
+    t.integer "status", default: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "room_talk_spaces", force: :cascade do |t|
+    t.integer "room_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -104,7 +121,7 @@ ActiveRecord::Schema.define(version: 2022_04_07_071005) do
     t.integer "platform", null: false
     t.integer "playstyle", null: false
     t.integer "weekday", null: false
-    t.integer "play_timing", null: false
+    t.integer "time", null: false
     t.string "introduction"
     t.integer "approval", null: false
     t.datetime "created_at", null: false
@@ -117,10 +134,8 @@ ActiveRecord::Schema.define(version: 2022_04_07_071005) do
     t.string "profile_image_id"
     t.string "introduction"
     t.integer "gender", null: false
-    t.integer "playstyle", null: false
     t.integer "platform", null: false
     t.integer "weekday", null: false
-    t.integer "play_timing", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
@@ -128,6 +143,7 @@ ActiveRecord::Schema.define(version: 2022_04_07_071005) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.integer "play_timing", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
