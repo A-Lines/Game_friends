@@ -10,6 +10,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div id="wrapper">
+      <%= render "layouts/header"%>
+    </div>
+    <main>
+     <div id="flash">
+      <%= render "layouts/flash" %>
+     </div>
+      <%= yield %>
+    </main>
   </body>
 </html>
