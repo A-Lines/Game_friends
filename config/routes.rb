@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'homes#top'
   get 'search' => 'searches#serach'
-  get 'users/:id/edit_profile' => 'users#edit_profile'
+  get 'users/:id/edit_profile' => 'users#edit_profile', as: 'edit_profile'
   get 'rooms/request' => 'rooms#request'
 
   resources :users, :only => [:show,:edit,:update ] do
