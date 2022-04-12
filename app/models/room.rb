@@ -13,7 +13,7 @@ class Room < ApplicationRecord
   
   with_options presence: true do
     validates :game_id
-    validates :member_max,less_than_or_equal_to: 10
+    validates :member_max, numericality: {less_than_or_equal_to: 10}
     validates :owner_id
     validates :platform
     validates :playstyle

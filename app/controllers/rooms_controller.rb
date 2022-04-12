@@ -2,6 +2,7 @@ class RoomsController < ApplicationController
     
  def new
     @room = Room.new
+    @game_list = Game.all
  end
  
  def create

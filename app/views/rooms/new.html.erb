@@ -1,9 +1,15 @@
 <h4>ルーム作成</h4>
 
  <%= form_with model: @room , url: rooms_path ,local: true do |f| %>
-    <%= render "layouts/error_messege" , model: f.object%>
-    <%= f.hidden_field :owner_id, value: current_user.id %>
-
-    <%= render "rooms/game_checkbox", f: f %>
-
+   <%= render "layouts/error_messege" , model: f.object%>
+   <%= f.hidden_field :owner_id, value: current_user %>
+   
+ <div class="form-group">
+   <%= f.label :ゲームタイトル %>
+   <% @game_list.each do |game| %>
+      <%= f.radio_button :game_id,game.id %>
+       <%= f.label attachment_image_tag game, :image%>
+    <% end %>
+ </div>
+ 
  <% end %>
