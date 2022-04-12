@@ -1,5 +1,9 @@
 class Room < ApplicationRecord
-  has_many :game_id
+  has_many :game_users
+  has_many :room_requests
+  has_many :room_members
+  belongs_to :room_talk_space
+  
   
   enum platform: Settings.platforms.to_h,_prefix: true
   enum playstyle: Settings.playstyles.to_h,_prefix: true

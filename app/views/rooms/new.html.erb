@@ -1,0 +1,9 @@
+<h4>ルーム作成</h4>
+
+ <%= form_with model: @room , url: rooms_path ,local: true do |f| %>
+    <%= render "layouts/error_messege" , model: f.object%>
+    <%= f.hidden_field :owner_id, value: current_user.id %>
+
+    <%= render "rooms/game_checkbox", f: f %>
+
+ <% end %>
