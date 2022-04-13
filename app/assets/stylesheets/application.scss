@@ -14,3 +14,27 @@
  *= require_self
  */
 @import 'bootstrap';
+
+.footer-list{
+ position: absolute;
+ bottom: 30px;
+ left: 25px;
+ list-style: none;
+}
+
+
+.top-container{
+  height: 80vh;
+}
+
+.copy-right{
+  float:right;
+}
+.fixed-bottom{
+ background-color: #fff;
+}
+
+footer{
+  height: 90px;
+  border-top: 1px solid #dcdcdc;
+}
