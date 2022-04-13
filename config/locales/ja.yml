@@ -29,6 +29,9 @@ ja:
       playstyle: *playstyle
       weekday: *weekday
       play_timing: *play_timing
+      approval:
+        auto: "自動承認制"
+        manual: "承認制"
     notice:
       action_type:
         mail: "メール通知"

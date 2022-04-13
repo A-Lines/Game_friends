@@ -3,11 +3,3 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-
-input[type=radio]:checked+.label::before{
-    border: 3px solid #000;
-    box-sizing: border-box;
-}
-// input[type=radio]{
-//     display: none;
-// } 

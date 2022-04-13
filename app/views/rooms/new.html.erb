@@ -1,15 +1,88 @@
 <h4>ルーム作成</h4>
 
  <%= form_with model: @room , url: rooms_path ,local: true do |f| %>
-   <%= render "layouts/error_messege" , model: f.object%>
-   <%= f.hidden_field :owner_id, value: current_user %>
-   
  <div class="form-group">
-   <%= f.label :ゲームタイトル %>
-   <% @game_list.each do |game| %>
-      <%= f.radio_button :game_id,game.id %>
-       <%= f.label attachment_image_tag game, :image%>
-    <% end %>
+   <%= f.label :"ゲームタイトル" %>
+   <%= f.collection_select :game_id, Game.all, :id, :title, :prompt => "--選択してください--" %>
  </div>
  
+　<div class="form-group">
+   <%= attachment_image_tag @room, :image, class: "img-square img-thumbnail", fallback: "roomicon.png", size: "300x200" %>
+   <%= f.attachment_field :image, id: "image" %>
+　</div>
+　
+　<div class="form-group">
+   <%= f.label :"募集人数" %>
+   <%= f.select :member_max, [["1人", 1], ["2人", 2], ["3人", 3], ["4人", 4], ["5人", 5], ["6人", 6], ["7人", 7], ["8人", 8], ["9人", 9], ["10人", 10]], {include_blank: '--選択してください--'} %>
+　</div>
+ 
+ <div class="form-group">
+   <%= f.label :"プラットフォームを選択（複数選択可）" %>
+   <% Room.platforms_i18n.values.each do |platform| %>
+    <%= f.check_box :platform,{ multiple: true}, nil %>
+    <%= platform %>
+   <% end %>
+ </div>
+
+  <div class="form-group">
+   <%= f.label :"プレイスタイルを選択（複数選択可）" %>
+   <% Room.playstyles_i18n.values.each do |playstyle| %>
+    <%= f.check_box :playstyle,{ multiple: true}, nil %>
+    <%= playstyle %>
+   <% end %>
+  </div>
+ 
+  <div class="form-group">
+   <%= f.label :"活動曜日を選択（複数選択可）" %>
+   <% Room.weekdays_i18n.values.each do |weekday| %>
+    <%= f.check_box :weekday,{ multiple: true}, nil %>
+    <%= weekday %>
+   <% end %>
+  </div>
+  
+  <div class="form-group">
+   <%= f.label :"活動時間帯を選択（複数選択可）" %>
+   <% Room.play_timings_i18n.values.each do |play_timing| %>
+    <%= f.check_box :play_timing,{ multiple: true}, nil %>
+    <%= play_timing %>
+   <% end %>
+  </div>
+  
+  <div class="form-group">
+   <%= f.label :introduction, "ひとこと"%>
+   <%= f.text_area :introduction %>
+  </div>
+ 
+   
+　<div class="form-group">   
+   <%= f.label :approval,"ルーム参加申請の承認方法"%>
+    <%= f.radio_button :approval, :auto %>
+    <%= f.label :auto,"自動承認制",autfocus: true%>
+    <%= f.radio_button :approval, :manual %>
+    <%= f.label :manual,"承認制" %>
+　</div>
+　
+　<div class="action">
+   <%= f.submit "ルームを作成する" %>
+   <%= link_to "キャンセル", root_path%>
+  </div>
+ 
+ 
  <% end %>
+ 
+ <!----画像プレビュー機能--->
+  <script>
+  $(function() {
+      $('#image').on('change', function() {
+          var selectedFile = this.files[0];
+          var fileReader = new FileReader();
+
+          fileReader.onload = function(event) {
+              var loadedImageUri = event.target.result;
+               $('.img-square').attr('src', loadedImageUri);
+          };
+
+          fileReader.readAsDataURL(selectedFile);
+      });
+  });
+  </script>

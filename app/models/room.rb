@@ -9,6 +9,7 @@ class Room < ApplicationRecord
   enum playstyle: Settings.playstyles.to_h,_prefix: true
   enum weekday: Settings.weekdays.to_h,_prefix: true
   enum play_timing: Settings.play_timings.to_h,_prefix: true
+  enum approval: { auto: 0, manual: 1}
   
   
   with_options presence: true do
