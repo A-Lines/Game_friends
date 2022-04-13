@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm p-2 mb-3 bg-white rounded p-20">
+  <div class="container">
+    <a class="logo" href="/"><%= image_tag 'logo.jpg', size: '120x120' %></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
+        <!--デザインはとりあえずなので相談して変えます-->
+
+        <% if signed_in? %>
+         <li><%= link_to ' マイページ',user_path(current_user.id),class: 'btn btn-outline-dark m-3 btn-sm' %></li>
+         <li><%= link_to ' ルーム作成', new_room_path,class: 'btn btn-outline-dark m-3 btn-sm' %></li>
+         <li><%= link_to ' ルーム検索', rooms_path , class: 'btn btn-outline-dark m-3 btn-sm' %></li>
+         <li><%= link_to ' 通知',root_path,class: 'btn btn-outline-dark m-3 btn-sm' %></li>
+        <% else %>
+         <li><%= link_to '  会員登録',new_user_registration_path , class: 'btn btn-outline-dark m-3 btn-sm' %></li>
+         <li><%= link_to ' ログイン',new_user_session_path , class: 'btn btn-outline-dark m-3 btn-sm' %></li>
+         <li><%= link_to ' ルーム一覧',rooms_path,class: 'btn btn-outline-dark m-3 btn-sm' %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
