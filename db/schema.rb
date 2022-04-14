@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 2022_04_07_071005) do
     t.integer "member_count"
     t.integer "owner_id", null: false
     t.string "image_id"
-    t.integer "platform", null: false
+    t.text "platform", null: false
     t.integer "playstyle", null: false
     t.integer "weekday", null: false
     t.integer "play_timing", null: false

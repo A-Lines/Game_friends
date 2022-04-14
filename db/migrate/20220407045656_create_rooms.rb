@@ -7,7 +7,7 @@ class CreateRooms < ActiveRecord::Migration[5.2]
       t.integer :member_count
       t.integer :owner_id, null: false
       t.string  :image_id
-      t.integer :platform, null: false
+      t.text    :platform, null: false
       t.integer :playstyle, null: false
       t.integer :weekday, null: false
       t.integer :play_timing, null: false

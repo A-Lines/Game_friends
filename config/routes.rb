@@ -13,7 +13,12 @@ Rails.application.routes.draw do
   end
 
   resources :dm_messages, :only => [:show,:create]
-  resources :room_messages, :only => [:show,:create]
-  resources :rooms
+  
+  resources :rooms do
+  resource :room_talk_spaces, :only => [:show,:create,:destroy]
+  resources :room_messages, :only => [:create]
+  resources :room_repuests, :only => [:create,:destroy]
+  resources :room_members, :only => [:create,:destroy]
+  end
   resources :games, :only => [:new,:create]
 end

@@ -19,7 +19,9 @@
  <div class="form-group">
    <%= f.label :"プラットフォームを選択（複数選択可）" %>
    <% Room.platforms_i18n.values.each do |platform| %>
-    <%= f.check_box :platform,{ multiple: true}, nil %>
+    <%= f.check_box :platform,{ multiple: true,
+                              checked: @room.platform.present? ?  @room.platform.split(",").include?(platform) : false}, 
+                              platform, nil %>
     <%= platform %>
    <% end %>
  </div>
