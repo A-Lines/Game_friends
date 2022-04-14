@@ -5,14 +5,18 @@ class RoomsController < ApplicationController
  end
  
  def create
-    room = Room.new(room_params)
-    params[:room][:platform] ? room.platform = params[:room][:platform].join(",") : false
+    room = Room.create(room_params)
+    params[:room][:platforms] ? room.platforms = params[:room][:platform].join(",") : false
+    params[:room][:playstyles] ? room.playstyles = params[:room][:playstyle].join(",") : false
+    params[:room][:weekdays] ? room.weekdays = params[:room][:weekday].join(",") : false
+    params[:room][:play_timings] ? room.play_timings = params[:room][:play_timing].join(",") : false
+
     # if user_signed_in?
-      #byebug
+
       if room.save!
-        room_member = room.room_members.create(user_id: 1,room_id: @room.id)
+        room_member = room.room_members.create(user_id: 1,room_id: @room)
 # ↑仮！！！！！！！ログイン機能がmergeされたら「current_user」に変更！！
-        room_talk_space = room.room_talk_space.create(room_id: @room.id)
+        room_talk_space = room.room_talk_space.create(room_id: @room)
         redirect_to room_path(room), success: "ルームを作成しました！"
       else
         render 'new'
@@ -23,14 +27,12 @@ class RoomsController < ApplicationController
     # end
  end
  
-     
- 
- 
+
  
  private 
   def room_params
         params.require(:room).permit(:room_id,:game_id, :room_member_id, :member_max, :member_count, :owner_id, 
-        :image, :platform, :playstyle, :weekday, :play_timing, :introduction,:approval).merge(owner_id: 1)
+        :image,:introduction,:approval,platforms: [],playstyles: [],weekdays: [],play_timings: []).merge(owner_id: 1)
         # ↑仮！！！！！！！ログイン機能がmergeされたら「owner_id:current_user」に変更！！
   end
     

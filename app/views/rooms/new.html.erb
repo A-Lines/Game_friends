@@ -29,7 +29,7 @@
   <div class="form-group">
    <%= f.label :"プレイスタイルを選択（複数選択可）" %>
    <% Room.playstyles_i18n.values.each do |playstyle| %>
-    <%= f.check_box :playstyle,{ multiple: true}, nil %>
+    <%= f.check_box :playstyle,{ multiple: true}, playstyle,nil %>
     <%= playstyle %>
    <% end %>
   </div>
@@ -37,7 +37,7 @@
   <div class="form-group">
    <%= f.label :"活動曜日を選択（複数選択可）" %>
    <% Room.weekdays_i18n.values.each do |weekday| %>
-    <%= f.check_box :weekday,{ multiple: true}, nil %>
+    <%= f.check_box :weekday,{ multiple: true},weekday, nil %>
     <%= weekday %>
    <% end %>
   </div>
@@ -45,7 +45,7 @@
   <div class="form-group">
    <%= f.label :"活動時間帯を選択（複数選択可）" %>
    <% Room.play_timings_i18n.values.each do |play_timing| %>
-    <%= f.check_box :play_timing,{ multiple: true}, nil %>
+    <%= f.check_box :play_timing,{ multiple: true}, play_timing,nil %>
     <%= play_timing %>
    <% end %>
   </div>

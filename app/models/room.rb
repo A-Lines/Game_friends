@@ -13,19 +13,20 @@ class Room < ApplicationRecord
   
   # 配列
   serialize :platform
+  serialize :playstyle
+  serialize :weekday
+  serialize :play_timing
   
   with_options presence: true do
     validates :game_id
     validates :member_max, numericality: {less_than_or_equal_to: 10}
     validates :owner_id
-   # validates :platform
-    validates :playstyle
-    validates :weekday
-    validates :play_timing
+    #validates :platform
+    #validates :playstyle
+    #validates :weekday
+    #validates :play_timing
   end
     validates :introduction,length: { maximum: 100 } 
-    validates :platform,inclusion: { in: Room.platforms }
 
-    
     attachment :image
 end
