@@ -1,8 +1,8 @@
 class CreateGameStyles < ActiveRecord::Migration[5.2]
   def change
     create_table :game_styles do |t|
-       t.string  :table_type, null: false
-       t.integer :table_id, null: false
+       t.integer  :room_id
+       t.integer :user_id
        t.boolean :platform_pc, null: false, default: false
        t.boolean :platform_playstation, null: false, default: false
        t.boolean :platform_xbox, null: false, default: false

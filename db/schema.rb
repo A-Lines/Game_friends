@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 2022_04_14_104210) do
   end
 
   create_table "game_styles", force: :cascade do |t|
-    t.string "table_type", null: false
-    t.integer "table_id", null: false
+    t.integer "room_id"
+    t.integer "user_id"
     t.boolean "platform_pc", default: false, null: false
     t.boolean "platform_playstation", default: false, null: false
     t.boolean "platform_xbox", default: false, null: false
