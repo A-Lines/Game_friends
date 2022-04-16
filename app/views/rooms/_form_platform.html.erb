@@ -1,0 +1,15 @@
+  <%= f.label :"プラットフォームを選択（複数選択可）" %>
+    <%= f.check_box :platform_pc, {}, "true", "false"%>
+    <%= label_tag :platform_pc, "PC"%>
+    
+    <%= f.check_box :platform_playstation, {}, "true", "false" %>
+    <%= label_tag :platform_playstation, "playstation" %>
+    
+    <%= f.check_box :platform_xbox, {}, "true", "false" %>
+    <%= label_tag :platform_xbox, "xbox" %>
+    
+    <%= f.check_box :platform_switch, {}, "true", "false" %>
+    <%= label_tag :platform_switch, "switch" %>
+    
+    <%= f.check_box :platform_smartfone, {}, "true", "false" %>
+    <%= label_tag :platform_smartfone, "smartfone" %>

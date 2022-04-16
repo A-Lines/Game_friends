@@ -16,64 +16,20 @@
    <%= f.select :member_max, [["1人", 1], ["2人", 2], ["3人", 3], ["4人", 4], ["5人", 5], ["6人", 6], ["7人", 7], ["8人", 8], ["9人", 9], ["10人", 10]], {include_blank: '--選択してください--'} %>
 　</div>
    
- 
- 
  <div class="form-group">
-   <%= f.label :"プラットフォームを選択（複数選択可）" %>
-    <%= f.check_box :platform_pc, {}, "true", "false" %>
-    <%= label_tag :platform_pc, "PC" %>
-    
-    <%= f.check_box :platform_playstation, {}, "true", "false" %>
-    <%= label_tag :platform_playstation, "playstation" %>
-    
-    <%= f.check_box :platform_xbox, {}, "true", "false" %>
-    <%= label_tag :platform_xbox, "xbox" %>
-    
-    <%= f.check_box :platform_switch, {}, "true", "false" %>
-    <%= label_tag :platform_switch, "switch" %>
-    
-    <%= f.check_box :platform_smartfone, {}, "true", "false" %>
-    <%= label_tag :platform_smartfone, "smartfone" %>
+   <%=  render 'form_platform' , f: f %>
  </div>
 
   <div class="form-group">
-   <%= f.label :"プレイスタイルを選択（複数選択可）" %>
-    <%= f.check_box :playstyle_enjoy, {}, "true", "false" %>
-    <%= label_tag :playstyle_enjoy, "enjoy" %>
-
-    <%= f.check_box :playstyle_serious, {}, "true", "false" %>
-    <%= label_tag :playstyle_serious, "serious" %>
-    
-    <%= f.check_box :playstyle_beginner, {}, "true", "false" %>
-    <%= label_tag :playstyle_beginner, "beginner" %>
+   <%=  render 'form_playstyle' , f: f %>
   </div>
  
   <div class="form-group">
-   <%= f.label :"活動曜日を選択（複数選択可）" %>
-    <%= f.check_box :weekday_weekday, {}, "true", "false" %>
-    <%= label_tag :weekday_weekday, "weekday" %>
-    
-    <%= f.check_box :weekday_holiday, {}, "true", "false" %>
-    <%= label_tag :weekday_holiday, "holiday" %>
-
-    <%= f.check_box :weekday_norule, {}, "true", "false" %>
-    <%= label_tag :weekday_norule, "norule" %>
-    
+   <%=  render 'form_weekday' , f: f %>
   </div>
   
   <div class="form-group">
-   <%= f.label :"活動時間帯を選択（複数選択可）" %>
-    <%= f.check_box :timing_morning, {}, "true", "false" %>
-    <%= label_tag :timing_morning, "morning" %>
-
-    <%= f.check_box :timing_afternoon, {}, "true", "false" %>
-    <%= label_tag :timing_afternoon, "afternoon" %>
-    
-    <%= f.check_box :timing_midnight, {}, "true", "false" %>
-    <%= label_tag :timing_midnight, "midnight" %>
-
-    <%= f.check_box :timing_norule, {}, "true", "false" %>
-    <%= label_tag :timing_norule, "norule" %>
+   <%=  render 'form_playtiming' , f: f %>
   </div>
   
   <div class="form-group">
@@ -81,7 +37,6 @@
    <%= f.text_area :introduction %>
   </div>
  
-   
 　<div class="form-group">   
    <%= f.label :approval,"ルーム参加申請の承認方法"%>
     <%= f.radio_button :approval, :auto %>

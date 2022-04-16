@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_14_104210) do
+ActiveRecord::Schema.define(version: 2022_04_07_071005) do
 
   create_table "dm_entries", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -29,28 +29,6 @@ ActiveRecord::Schema.define(version: 2022_04_14_104210) do
 
   create_table "dm_spaces", force: :cascade do |t|
     t.integer "dm_entry_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "game_styles", force: :cascade do |t|
-    t.integer "room_id"
-    t.integer "user_id"
-    t.boolean "platform_pc", default: false, null: false
-    t.boolean "platform_playstation", default: false, null: false
-    t.boolean "platform_xbox", default: false, null: false
-    t.boolean "platform_switch", default: false, null: false
-    t.boolean "platform_smartfone", default: false, null: false
-    t.boolean "playstyle_enjoy", default: false, null: false
-    t.boolean "playstyle_serious", default: false, null: false
-    t.boolean "playstyle_beginner", default: false, null: false
-    t.boolean "weekday_weekday", default: false, null: false
-    t.boolean "weekday_holiday", default: false, null: false
-    t.boolean "weekday_norule", default: false, null: false
-    t.boolean "timing_morning", default: false, null: false
-    t.boolean "timing_afternoon", default: false, null: false
-    t.boolean "timing_midnight", default: false, null: false
-    t.boolean "timing_norule", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -104,11 +82,6 @@ ActiveRecord::Schema.define(version: 2022_04_14_104210) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "room_forms", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "room_members", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "room_id", null: false
@@ -146,6 +119,21 @@ ActiveRecord::Schema.define(version: 2022_04_14_104210) do
     t.string "image_id"
     t.string "introduction"
     t.integer "approval", null: false
+    t.boolean "platform_pc", default: false, null: false
+    t.boolean "platform_playstation", default: false, null: false
+    t.boolean "platform_xbox", default: false, null: false
+    t.boolean "platform_switch", default: false, null: false
+    t.boolean "platform_smartfone", default: false, null: false
+    t.boolean "playstyle_enjoy", default: false, null: false
+    t.boolean "playstyle_serious", default: false, null: false
+    t.boolean "playstyle_beginner", default: false, null: false
+    t.boolean "weekday_weekday", default: false, null: false
+    t.boolean "weekday_holiday", default: false, null: false
+    t.boolean "weekday_norule", default: false, null: false
+    t.boolean "timing_morning", default: false, null: false
+    t.boolean "timing_afternoon", default: false, null: false
+    t.boolean "timing_midnight", default: false, null: false
+    t.boolean "timing_norule", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -156,6 +144,21 @@ ActiveRecord::Schema.define(version: 2022_04_14_104210) do
     t.string "profile_image_id"
     t.string "introduction"
     t.integer "gender", null: false
+    t.boolean "platform_pc", default: false, null: false
+    t.boolean "platform_playstation", default: false, null: false
+    t.boolean "platform_xbox", default: false, null: false
+    t.boolean "platform_switch", default: false, null: false
+    t.boolean "platform_smartfone", default: false, null: false
+    t.boolean "playstyle_enjoy", default: false, null: false
+    t.boolean "playstyle_serious", default: false, null: false
+    t.boolean "playstyle_beginner", default: false, null: false
+    t.boolean "weekday_weekday", default: false, null: false
+    t.boolean "weekday_holiday", default: false, null: false
+    t.boolean "weekday_norule", default: false, null: false
+    t.boolean "timing_morning", default: false, null: false
+    t.boolean "timing_afternoon", default: false, null: false
+    t.boolean "timing_midnight", default: false, null: false
+    t.boolean "timing_norule", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

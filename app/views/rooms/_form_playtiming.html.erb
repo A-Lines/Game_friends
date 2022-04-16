@@ -1,0 +1,9 @@
+   <%= f.label :"活動曜日を選択（複数選択可）" %>
+    <%= f.check_box :weekday_weekday, {}, "true", "false" %>
+    <%= label_tag :weekday_weekday, "weekday" %>
+    
+    <%= f.check_box :weekday_holiday, {}, "true", "false" %>
+    <%= label_tag :weekday_holiday, "holiday" %>
+
+    <%= f.check_box :weekday_norule, {}, "true", "false" %>
+    <%= label_tag :weekday_norule, "norule" %>
