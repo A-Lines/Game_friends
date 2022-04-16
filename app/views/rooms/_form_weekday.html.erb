@@ -1,12 +1,12 @@
    <%= f.label :"活動時間帯を選択（複数選択可）" %>
     <%= f.check_box :timing_morning, {}, "true", "false" %>
-    <%= label_tag :timing_morning, "morning" %>
+    <%= label_tag :timing_morning, "午前" %>
 
     <%= f.check_box :timing_afternoon, {}, "true", "false" %>
-    <%= label_tag :timing_afternoon, "afternoon" %>
+    <%= label_tag :timing_afternoon, "午後" %>
     
     <%= f.check_box :timing_midnight, {}, "true", "false" %>
-    <%= label_tag :timing_midnight, "midnight" %>
+    <%= label_tag :timing_midnight, "深夜" %>
 
     <%= f.check_box :timing_norule, {}, "true", "false" %>
-    <%= label_tag :timing_norule, "norule" %>
+    <%= label_tag :timing_norule, "不定期" %>
