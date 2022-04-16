@@ -113,17 +113,27 @@ ActiveRecord::Schema.define(version: 2022_04_07_071005) do
 
   create_table "rooms", force: :cascade do |t|
     t.integer "game_id", null: false
-    t.integer "room_member_id"
     t.integer "member_max", null: false
     t.integer "member_count"
     t.integer "owner_id", null: false
     t.string "image_id"
-    t.integer "platform", null: false
-    t.integer "playstyle", null: false
-    t.integer "weekday", null: false
-    t.integer "play_timing", null: false
     t.string "introduction"
     t.integer "approval", null: false
+    t.boolean "platform_pc", default: false, null: false
+    t.boolean "platform_playstation", default: false, null: false
+    t.boolean "platform_xbox", default: false, null: false
+    t.boolean "platform_switch", default: false, null: false
+    t.boolean "platform_smartfone", default: false, null: false
+    t.boolean "playstyle_enjoy", default: false, null: false
+    t.boolean "playstyle_serious", default: false, null: false
+    t.boolean "playstyle_beginner", default: false, null: false
+    t.boolean "weekday_weekday", default: false, null: false
+    t.boolean "weekday_holiday", default: false, null: false
+    t.boolean "weekday_norule", default: false, null: false
+    t.boolean "timing_morning", default: false, null: false
+    t.boolean "timing_afternoon", default: false, null: false
+    t.boolean "timing_midnight", default: false, null: false
+    t.boolean "timing_norule", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -134,19 +144,23 @@ ActiveRecord::Schema.define(version: 2022_04_07_071005) do
     t.string "profile_image_id"
     t.string "introduction"
     t.integer "gender", null: false
-    t.integer "playstyle", null: false
-    t.integer "platform", null: false
-    t.integer "weekday", null: false
-    t.integer "play_timing", null: false
+    t.boolean "platform_pc", default: false, null: false
+    t.boolean "platform_playstation", default: false, null: false
+    t.boolean "platform_xbox", default: false, null: false
+    t.boolean "platform_switch", default: false, null: false
+    t.boolean "platform_smartfone", default: false, null: false
+    t.boolean "playstyle_enjoy", default: false, null: false
+    t.boolean "playstyle_serious", default: false, null: false
+    t.boolean "playstyle_beginner", default: false, null: false
+    t.boolean "weekday_weekday", default: false, null: false
+    t.boolean "weekday_holiday", default: false, null: false
+    t.boolean "weekday_norule", default: false, null: false
+    t.boolean "timing_morning", default: false, null: false
+    t.boolean "timing_afternoon", default: false, null: false
+    t.boolean "timing_midnight", default: false, null: false
+    t.boolean "timing_norule", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

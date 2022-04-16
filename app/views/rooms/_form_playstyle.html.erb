@@ -1,0 +1,9 @@
+  <%= f.label :"プレイスタイルを選択（複数選択可）" %>
+    <%= f.check_box :playstyle_enjoy, {}, "true", "false" %>
+    <%= label_tag :playstyle_enjoy, "エンジョイ" %>
+
+    <%= f.check_box :playstyle_serious, {}, "true", "false" %>
+    <%= label_tag :playstyle_serious, "ガチ" %>
+    
+    <%= f.check_box :playstyle_beginner, {}, "true", "false" %>
+    <%= label_tag :playstyle_beginner, "初心者" %>
