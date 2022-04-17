@@ -32,4 +32,16 @@ class Room < ApplicationRecord
     validates :timing_norule
   end
 
+  def request_room_platform_index(room)
+    room = Room.find(params[:id])
+     #　room.idのレコードを取得
+     # 取得したレコードから、「＊プラットフォーム」のカラムの「true」のみを取得
+     #どう値を格納するか？
+     
+   
+    
+    
+  end
+  
+
 end
