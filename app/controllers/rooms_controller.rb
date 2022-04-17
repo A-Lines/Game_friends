@@ -22,6 +22,11 @@ class RoomsController < ApplicationController
     # end
  end
  
+ def request
+    @room = Room.find(params[:id])
+ 
+ end
+ 
 
  
  private 
