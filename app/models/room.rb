@@ -34,7 +34,9 @@ class Room < ApplicationRecord
 
   def request_room_platform_index(room)
     room = Room.find(params[:id])
+    array = [] 
      #　room.idのレコードを取得
+    array = room.where('platform% like ?','true')
      # 取得したレコードから、「＊プラットフォーム」のカラムの「true」のみを取得
      #どう値を格納するか？
      

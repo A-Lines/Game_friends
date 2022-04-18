@@ -22,11 +22,11 @@ class RoomsController < ApplicationController
     # end
  end
  
- def request
-    @room = Room.find(params[:id])
-    @room_platform = @room.where('カラム名 like ?','検索したい文字列')
+#  def request
+#     @room = Room.find(params[:id])
+#     @room_platform = @room.where('カラム名 like ?','検索したい文字列')
  
- end
+#  end
  
 
  
