@@ -113,17 +113,27 @@ ActiveRecord::Schema.define(version: 2022_04_17_075511) do
 
   create_table "rooms", force: :cascade do |t|
     t.integer "game_id", null: false
-    t.integer "room_member_id"
     t.integer "member_max", null: false
     t.integer "member_count"
     t.integer "owner_id", null: false
     t.string "image_id"
-    t.integer "platform", null: false
-    t.integer "playstyle", null: false
-    t.integer "weekday", null: false
-    t.integer "play_timing", null: false
     t.string "introduction"
     t.integer "approval", null: false
+    t.boolean "platform_pc", default: false, null: false
+    t.boolean "platform_playstation", default: false, null: false
+    t.boolean "platform_xbox", default: false, null: false
+    t.boolean "platform_switch", default: false, null: false
+    t.boolean "platform_smartfone", default: false, null: false
+    t.boolean "playstyle_enjoy", default: false, null: false
+    t.boolean "playstyle_serious", default: false, null: false
+    t.boolean "playstyle_beginner", default: false, null: false
+    t.boolean "weekday_weekday", default: false, null: false
+    t.boolean "weekday_holiday", default: false, null: false
+    t.boolean "weekday_norule", default: false, null: false
+    t.boolean "timing_morning", default: false, null: false
+    t.boolean "timing_afternoon", default: false, null: false
+    t.boolean "timing_midnight", default: false, null: false
+    t.boolean "timing_norule", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
