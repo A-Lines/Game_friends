@@ -1,0 +1,2 @@
+class NotiSettingsController < ApplicationController
+end

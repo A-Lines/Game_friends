@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_07_071005) do
+ActiveRecord::Schema.define(version: 2022_04_17_075511) do
 
   create_table "dm_entries", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -47,6 +47,18 @@ ActiveRecord::Schema.define(version: 2022_04_07_071005) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "notice_settings", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.boolean "email_notice", default: false, null: false
+    t.boolean "follow_notice", default: true, null: false
+    t.boolean "dm_notice", default: true, null: false
+    t.boolean "room_entry_notice", default: true, null: false
+    t.boolean "room_result_notice", default: true, null: false
+    t.boolean "group_talk_notice", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "notices", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "notice_setting_id", null: false
@@ -59,18 +71,6 @@ ActiveRecord::Schema.define(version: 2022_04_07_071005) do
     t.integer "noticed_user_id", null: false
     t.integer "action_type", null: false
     t.boolean "confitmation_status", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "notion_settings", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.boolean "email_notice", default: false, null: false
-    t.boolean "follow_notice", default: true, null: false
-    t.boolean "dm_notice", default: true, null: false
-    t.boolean "room_entry_notice", default: true, null: false
-    t.boolean "room_result_notice", default: true, null: false
-    t.boolean "group_talk_notice", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -139,33 +139,32 @@ ActiveRecord::Schema.define(version: 2022_04_07_071005) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer "game_user_id", null: false
-    t.string "nickname", null: false
-    t.string "profile_image_id"
-    t.string "introduction"
-    t.integer "gender", null: false
-    t.boolean "platform_pc", default: false, null: false
-    t.boolean "platform_playstation", default: false, null: false
-    t.boolean "platform_xbox", default: false, null: false
-    t.boolean "platform_switch", default: false, null: false
-    t.boolean "platform_smartfone", default: false, null: false
-    t.boolean "playstyle_enjoy", default: false, null: false
-    t.boolean "playstyle_serious", default: false, null: false
-    t.boolean "playstyle_beginner", default: false, null: false
-    t.boolean "weekday_weekday", default: false, null: false
-    t.boolean "weekday_holiday", default: false, null: false
-    t.boolean "weekday_norule", default: false, null: false
-    t.boolean "timing_morning", default: false, null: false
-    t.boolean "timing_afternoon", default: false, null: false
-    t.boolean "timing_midnight", default: false, null: false
-    t.boolean "timing_norule", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "nickname"
+    t.string "profile_image_id"
+    t.string "introduction"
+    t.integer "gender"
+    t.boolean "platform_pc", default: false
+    t.boolean "platform_playstation", default: false
+    t.boolean "platform_xbox", default: false
+    t.boolean "platform_switch", default: false
+    t.boolean "platform_smartfone", default: false
+    t.boolean "playstyle_enjoy", default: false
+    t.boolean "playstyle_serious", default: false
+    t.boolean "playstyle_beginner", default: false
+    t.boolean "weekday_weekday", default: false
+    t.boolean "weekday_holiday", default: false
+    t.boolean "weekday_norule", default: false
+    t.boolean "timing_morning", default: false
+    t.boolean "timing_afternoon", default: false
+    t.boolean "timing_midnight", default: false
+    t.boolean "timing_norule", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

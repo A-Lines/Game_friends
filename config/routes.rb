@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+  omniauth_callbacks: 'users/omniauth_callbacks',
+  registrations: 'users/registrations'
+}
   root to: 'homes#top'
   get 'search' => 'searches#serach'
   get 'users/:id/edit_profile' => 'users#edit_profile'
