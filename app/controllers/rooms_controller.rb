@@ -22,13 +22,14 @@ class RoomsController < ApplicationController
     # end
  end
  
-#  def request
-#     @room = Room.find(params[:id])
-#     @room_platform = @room.where('カラム名 like ?','検索したい文字列')
- 
-#  end
- 
-
+  def join_request
+    @room = Room.find(params[:id])
+    @romm_owner = Roommember.where(user_id: owner_id).nickname
+    @room_platforms = @room.i18n_true_platform_index
+    @room_playstyles = @room.i18n_true_playstyle_index
+    @room_weekdays = @room.i18n_true_weekday_index
+    @room_playtimings = @room.i18n_true_playtiming_index
+  end
  
  private 
   def room_params

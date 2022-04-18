@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'search' => 'searches#serach'
   get 'users/:id/edit_profile' => 'users#edit_profile'
-  get 'rooms/request' => 'rooms#request'
 
   resources :users, :only => [:show,:edit,:update ] do
     # showページが不要、idの受け渡しもないのでresourceと記述
@@ -20,6 +19,7 @@ Rails.application.routes.draw do
   resources :room_repuests, :only => [:create,:destroy]
   resources :room_members, :only => [:create,:destroy]
   end
+  get 'rooms/:id/join_request' => 'rooms#join_request', as: 'join_request'
   
   resources :games, :only => [:new,:create]
 end
