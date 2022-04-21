@@ -23,8 +23,10 @@ class RoomsController < ApplicationController
  
   def join_request
     @room = Room.find(params[:id])
-    @romm_owner = RoomMember.where(user_id: @room.owner_id)
-    # User,Gameとアソシエーションしないと表示できない！！！！！
+    room_owner = RoomMember.where(user_id: @room.owner_id)
+        byebug
+    @room_owner_nickname = User.find(room_owner)
+    @room_game = Game.find(@room.id).title
     @room_platforms = @room.i18n_true_platform_index
     @room_playstyles = @room.i18n_true_playstyle_index
     @room_weekdays = @room.i18n_true_weekday_index
